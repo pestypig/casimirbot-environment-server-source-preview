@@ -1,0 +1,3 @@
+# Environment connector server source: private review draft
+
+This unlicensed, source-only draft isolates 76 exact server TypeScript files under environment-connectors. It includes binding, pairing, session, command, action, resident-control, and temporal-plan code. It is not a runnable server, live connector, permission grant, or accepted environment capability. No source was executed. The external program, credentials, data, other server modules, account policy, and dependencies are absent. Exact rights, security and third-party review, final notices, and separate Public exposure approval are required.

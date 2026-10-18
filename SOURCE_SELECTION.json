@@ -1,0 +1,468 @@
+{
+  "schema": "casimirbot.server_environment_connectors_76_source_selection.v1",
+  "status": "private-technical-review-unlicensed",
+  "sourceCommit": "75ae2eb2a6099e2cfc6785693c3349f4016272a8",
+  "parentManifestSha256": "29586200a428e2ac9e407ab41f0feb057f23093045eae97db7d62d9ed776f493",
+  "authExcludedManifestSha256": "38bb3336ef3cd71d055a3c96479aa7009d3cec1c6d8f88b36a89869b31ce6b94",
+  "selectionRule": "All 76 TypeScript paths under server/services/environment-connectors/ from the corrected 1,825-file server inventory that were directly excluded by the coarse authority-directory rule; source-only technical review, not rights, auth, action, or maturity clearance.",
+  "sourceFiles": 76,
+  "sourceBytes": 781227,
+  "files": [
+    {
+      "path": "server/services/environment-connectors/actions/authority-store.ts",
+      "bytes": 45733,
+      "sha256": "7bbd742714a6c3e17f23691473c9a7190c9311e3b3f9f63c5c3392b312164411",
+      "gitBlob": "cf6222ed4725f136c5adba84c892a13fac9a9992"
+    },
+    {
+      "path": "server/services/environment-connectors/actions/reactive-checkpoint-measurements.ts",
+      "bytes": 2056,
+      "sha256": "4f9833ccd09d4049c5ced225953302742aca6551728d071939e524a059f8b1a8",
+      "gitBlob": "0b14c8672e3d522cdedcced8a344e8d54e20b2f5"
+    },
+    {
+      "path": "server/services/environment-connectors/actions/root-action-lease-query.ts",
+      "bytes": 698,
+      "sha256": "d939bad6d55a73229ae7bc93c4b89e3f3bb6d7a677aefb2f6ff8f3c4dfd92e01",
+      "gitBlob": "eab512dd94a92f5ae925e79cc7a10039fe92f2dc"
+    },
+    {
+      "path": "server/services/environment-connectors/actions/temporal-admission-publication.ts",
+      "bytes": 1655,
+      "sha256": "5fc3685b174527fa6e4737782e167690a94f3498ab2f9184ff41e4e38081870f",
+      "gitBlob": "6b6917e9c18de50c46e2f1842e95692f4f786c61"
+    },
+    {
+      "path": "server/services/environment-connectors/actions/temporal-delivery-status.ts",
+      "bytes": 1488,
+      "sha256": "0d3d5e11de8db1bc5012f505252dec1efd514035693231cc8699424ea3b7be58",
+      "gitBlob": "d151097110d262293e1690305293d6aea9f82822"
+    },
+    {
+      "path": "server/services/environment-connectors/actions/temporal-epoch-gap.ts",
+      "bytes": 836,
+      "sha256": "8d2d0a0f0545df171963a452745535c80eec45fb72467912341919332dd26652",
+      "gitBlob": "fba3d9579b417b32132c7fb1b82711519822d1e4"
+    },
+    {
+      "path": "server/services/environment-connectors/actions/temporal-successor-query.ts",
+      "bytes": 2297,
+      "sha256": "049eceb9d6890ffc7d3d720cf20220c2e1b6e0ca8ef20239dd9c688280935ada",
+      "gitBlob": "8fd800b5e0e8c33f65a3cb3b8bb25620b3e9f63e"
+    },
+    {
+      "path": "server/services/environment-connectors/actions/workflow-differential-audit.ts",
+      "bytes": 10519,
+      "sha256": "e78d166d3c7b2efb227dda909413bc38f98c5db6ac0449a940e333fa722383ef",
+      "gitBlob": "a57a7214ee971433c9f6e25dbd6013246b1d81f1"
+    },
+    {
+      "path": "server/services/environment-connectors/actions/workflow-differential-trace-capture.ts",
+      "bytes": 6897,
+      "sha256": "a4e008c3cc139f4f7d68582ebe01736e08edd5d990afe7e632dd9ebdab01e927",
+      "gitBlob": "3783bcab63eac2a262a77d4edc31b27eb3c59387"
+    },
+    {
+      "path": "server/services/environment-connectors/actions/workflow-g2-parity-audit.ts",
+      "bytes": 10382,
+      "sha256": "e940d5a154e732895910c99c8ef53e4e355d505e3f403e3635e56831659bc8e5",
+      "gitBlob": "6d69050ad553e9493d93ce8e9154b4df3a77ae00"
+    },
+    {
+      "path": "server/services/environment-connectors/bindings/local-supervisor-identity-reader.ts",
+      "bytes": 3229,
+      "sha256": "427a805ea5df47c83f5879cc8ffeafe89f399be4f442c580cbab92e166cb60e6",
+      "gitBlob": "2fffe41178d916642700b040cabc7fcd14c035dd"
+    },
+    {
+      "path": "server/services/environment-connectors/brokerage/brokerage-resident-bootstrap.ts",
+      "bytes": 15755,
+      "sha256": "354211304eb7e01e6d89f74857e0627273df2165727d08586875b50002cc24c5",
+      "gitBlob": "25d6f896f101a9b19f4444e3fb56a6101857c13d"
+    },
+    {
+      "path": "server/services/environment-connectors/brokerage/g7-transfer-audit.ts",
+      "bytes": 11704,
+      "sha256": "ae88592862ba3c8d567f9cb97c609013295d097cb1ee0b7a723fdfce5df975f3",
+      "gitBlob": "a85ae8bbef0c72eba62f4a7effdbbdf2c95a425a"
+    },
+    {
+      "path": "server/services/environment-connectors/catalog/index.ts",
+      "bytes": 150107,
+      "sha256": "27e2c53ee5cba7087ab6545d3892106a553b5a6e8ec1137d627b12927df58dcd",
+      "gitBlob": "49bb2eb2a5670060340f47827fce4bf15e38678f"
+    },
+    {
+      "path": "server/services/environment-connectors/commands/authority-policy.ts",
+      "bytes": 9011,
+      "sha256": "f0b779ee787395d68a7e95613611d7750cc967bfaa8196fba63fe6a925207739",
+      "gitBlob": "fb4067f3b1779b50be1b94bad4e1c4d62a503fbf"
+    },
+    {
+      "path": "server/services/environment-connectors/commands/authority-store.ts",
+      "bytes": 23008,
+      "sha256": "def18b57eccbb9881f1fa507f11117da5a609ef007f701c26c402fce1aa07ca6",
+      "gitBlob": "eadf872a00823ba006971309e9fb7f971d161792"
+    },
+    {
+      "path": "server/services/environment-connectors/commands/command-subject-policy.ts",
+      "bytes": 1039,
+      "sha256": "ae871a51c943e9d42f0924d9cad1834eee40643f8afa0cd476ddaac4620e0f9d",
+      "gitBlob": "664a1c9696179012c6920e024fc682d9c6e17417"
+    },
+    {
+      "path": "server/services/environment-connectors/conformance/index.ts",
+      "bytes": 122,
+      "sha256": "6e23e2f27f79181e55e808b924b29afd4dfd9d9727cc653a7ba90c35bf000636",
+      "gitBlob": "8a5b5f3d111df7eb536d574b80e98a12bb46aa41"
+    },
+    {
+      "path": "server/services/environment-connectors/conformance/schema-validator.ts",
+      "bytes": 188,
+      "sha256": "ddf4329b2338c7cde33cf91f9afc2a2d80ca14e2bc4d8864b06a74a66cc286bf",
+      "gitBlob": "2676c024c09c77b816e31313f43abea2a9b2d99d"
+    },
+    {
+      "path": "server/services/environment-connectors/credential-use-throttle.ts",
+      "bytes": 1859,
+      "sha256": "6481f8cf32f03225ee83d8b8010a519a9da3d32ba882ea67d894d2852ef685b2",
+      "gitBlob": "727b0efb7d359e707eb53c5a615a33196c426ede"
+    },
+    {
+      "path": "server/services/environment-connectors/devices/device-check.ts",
+      "bytes": 10286,
+      "sha256": "8b21d895d9a59c671410456285099b6e98bc9e6cc4a7b8e81cec455afd03589f",
+      "gitBlob": "b1a2bf481a21402ca0f1cf8a6c0c0ec0e6462ae1"
+    },
+    {
+      "path": "server/services/environment-connectors/devices/index.ts",
+      "bytes": 587,
+      "sha256": "5acf569f8c69e964c14fd2e62d72e81ea691f3bd34292da855a879ef3c5ab9b4",
+      "gitBlob": "31105aad62a3235c617c9827eb425289f6cbc59c"
+    },
+    {
+      "path": "server/services/environment-connectors/goals/durable-goal-store.ts",
+      "bytes": 56812,
+      "sha256": "ac76544c8dcb23139a33f304c054f4901518e53909e5f4346f5ced9a10ec2d5e",
+      "gitBlob": "f0b23485801a988701c59042bdacdb3ece61992d"
+    },
+    {
+      "path": "server/services/environment-connectors/goals/index.ts",
+      "bytes": 39,
+      "sha256": "316b12cf146ff57ec672abcb2361650f7da3768ec88c535c51000d9c7ff0815b",
+      "gitBlob": "9a838300401521a6c388f51813f74b3829b8a7f8"
+    },
+    {
+      "path": "server/services/environment-connectors/installations/index.ts",
+      "bytes": 461,
+      "sha256": "6e8f469f7663c4c2ac230964543a30b96f73974f7932818e9fb7acb2c11e56a3",
+      "gitBlob": "ea9b7859dda57d1a0db0cce71a3f1cca684048bf"
+    },
+    {
+      "path": "server/services/environment-connectors/installations/minecraft-fabric-loopback-lifecycle.ts",
+      "bytes": 7969,
+      "sha256": "eacc47dbc025a83da38071676c89164044210d524ac49928f16791e5b81d2b03",
+      "gitBlob": "63a6f0a0fcdf8b21027a7abd2a89e94ef2068213"
+    },
+    {
+      "path": "server/services/environment-connectors/installations/minecraft-local-server-lifecycle.ts",
+      "bytes": 3371,
+      "sha256": "7bc0e6f55d0fc2b42c039e890b85184b4d46ec8fccb92828fcf444d91e592575",
+      "gitBlob": "aa2f138bc4a8bf6d9791282c405970d046619944"
+    },
+    {
+      "path": "server/services/environment-connectors/monitoring/brokerage-market-observer-semantic-source.ts",
+      "bytes": 4263,
+      "sha256": "2239f36af14499c52dcdd0baca54308c3c6080857afd732035fbf96586b158bc",
+      "gitBlob": "6dac43fb9db2f4918ad949f829539500642b5891"
+    },
+    {
+      "path": "server/services/environment-connectors/monitoring/environment-monitor-semantic-source.ts",
+      "bytes": 10587,
+      "sha256": "fbbec441e3d7e1a1b6072beeb788401bdba545cab0748edbf9bd9642b663cd37",
+      "gitBlob": "d944f4103c152cf880d761b1cf41a9b0a415b7b9"
+    },
+    {
+      "path": "server/services/environment-connectors/monitoring/environment-monitor-store.ts",
+      "bytes": 35368,
+      "sha256": "dd2e28e4d2e9422f4129a677a166049768c84f4d3834e5c9d0ea6178fda78c70",
+      "gitBlob": "ecec9364487026afb35444a22b9a240232dcabdb"
+    },
+    {
+      "path": "server/services/environment-connectors/navigation/minecraft-native-collision-replay.ts",
+      "bytes": 3309,
+      "sha256": "8d641091a9bfd07535442e9668e2790aa57b6b4d5f2444decf41b1b4ddbe8c86",
+      "gitBlob": "25b1846969424653ca3e1abdcbff7d8c1910b956"
+    },
+    {
+      "path": "server/services/environment-connectors/navigation/minecraft-navigation-collision-observation.ts",
+      "bytes": 4182,
+      "sha256": "6e82d034722c7eaaad878108ad08f2b0804065409819804cc94fed93e285c94b",
+      "gitBlob": "90bd748b448336741e41251694367be0829d0d5c"
+    },
+    {
+      "path": "server/services/environment-connectors/navigation/minecraft-navigation-collision-schema.ts",
+      "bytes": 2258,
+      "sha256": "e3e207fcb38898b6dbca23820a49acc945c4d453a8f4e398a6472296d5999adb",
+      "gitBlob": "bb2250a074c93ab7fa802dae4eaae066aea6c43c"
+    },
+    {
+      "path": "server/services/environment-connectors/navigation/minecraft-voxel-topology.ts",
+      "bytes": 11883,
+      "sha256": "eff0cc988c86abcf5e343a7ed6e342f1824a2e0469cd5e2a8d4cdfe277615e3a",
+      "gitBlob": "9dff37e49ef67a9d7cc94c1db656b70b72adfb2a"
+    },
+    {
+      "path": "server/services/environment-connectors/pairing/local-minecraft-run-profile-store.ts",
+      "bytes": 8316,
+      "sha256": "d7e12e5a36739250deaa0f563b923003e72f350baff26d660ccfc4e10240ba1a",
+      "gitBlob": "89dfda570a70be774a50467b087344caa9c6ce5b"
+    },
+    {
+      "path": "server/services/environment-connectors/pairing/local-player-pairing-handoff.ts",
+      "bytes": 3786,
+      "sha256": "0e5f2e84333f9e38ec96b3db02d551e71633c580a98dd9e1b13132e73fe55e14",
+      "gitBlob": "bb628d3665235b74ed6e8c03384c421bb59639d3"
+    },
+    {
+      "path": "server/services/environment-connectors/pairing/local-server-pairing-handoff.ts",
+      "bytes": 6717,
+      "sha256": "edc2e91effbccdeed9b281c639d8f1046a27a84fe7327f4f8f921ff3c2b65908",
+      "gitBlob": "1ebbe9f50f5cf659902c40809482bed8a3b2a266"
+    },
+    {
+      "path": "server/services/environment-connectors/profiles/index.ts",
+      "bytes": 215,
+      "sha256": "6281d13bcf9cd9c33f7352819e27989a59d5da9fb8894e681088f419ecffdbf5",
+      "gitBlob": "2f413cc70627db1cabb894ef4f700d442201858a"
+    },
+    {
+      "path": "server/services/environment-connectors/profiles/room-read-grant-lifecycle.ts",
+      "bytes": 16394,
+      "sha256": "a34975f0cfadc3750c71fc3c141499b8c2283d1ca3d225b3b0359288159ddfb1",
+      "gitBlob": "360ca39739fce814db61fe808f12fbfe54e1e521"
+    },
+    {
+      "path": "server/services/environment-connectors/reasoning-roles/environment-reasoning-role-audit.ts",
+      "bytes": 5924,
+      "sha256": "7c4ead2c72fa8deb5d01406c88c93627c791acb28d3ece5041bde8c7b0b2325d",
+      "gitBlob": "dea94e0fac4139e3a3d9e83210322f696dbbff48"
+    },
+    {
+      "path": "server/services/environment-connectors/reasoning-roles/environment-reasoning-role-store.ts",
+      "bytes": 28666,
+      "sha256": "da7e2ae32e938be9c49ab8d66b14d2870394577bfb1ee0808b278a5739dda9cf",
+      "gitBlob": "240d6242c3bed85bafee9a56455a8b1254cb3b52"
+    },
+    {
+      "path": "server/services/environment-connectors/resident-control/companion-presence-store.ts",
+      "bytes": 14005,
+      "sha256": "d7b141c3329957bb8fade94d3d8a845bd648dcdaac590444dcf877e0aa262399",
+      "gitBlob": "5b0cdfc7856ad952397451baf23ecae4cc649c4a"
+    },
+    {
+      "path": "server/services/environment-connectors/resident-control/private-companion-custody-evidence-reader.ts",
+      "bytes": 6429,
+      "sha256": "3ffe6e446028e71a2c42f2e178e5a9842df0a0fac5450f0e26e2d1f3049eab16",
+      "gitBlob": "4f61761312ffb14045e564bb9fc26bddfab67522"
+    },
+    {
+      "path": "server/services/environment-connectors/resident-control/private-companion-follow-evidence-reader.ts",
+      "bytes": 6326,
+      "sha256": "7f36c96890c6942eb0d67e34660659bfcce2e3eae1d781ba3b1a5883c85520a9",
+      "gitBlob": "dd1073df43513a8e7abc95b4054c67c984ae225f"
+    },
+    {
+      "path": "server/services/environment-connectors/resident-control/private-companion-mining-evidence-reader.ts",
+      "bytes": 6291,
+      "sha256": "9372d7068460571844e5b716511df226df80d317c8edd909202f0e7a00113098",
+      "gitBlob": "193d68dbe146a11b2056b425ed72cc4b672cfcfd"
+    },
+    {
+      "path": "server/services/environment-connectors/resident-control/private-companion-presence-evidence-reader.ts",
+      "bytes": 6000,
+      "sha256": "9e88cb03483967bf2f3bec622055de474f20790e48a5b79f6af30343acfb3d17",
+      "gitBlob": "dc33c441c50982f3da3b07512fac012860eeb3a7"
+    },
+    {
+      "path": "server/services/environment-connectors/session/preparation-intent-runtime.ts",
+      "bytes": 1115,
+      "sha256": "681fd3083972ce84005aa583193f484014d6c173f736b290c23ac4644033076e",
+      "gitBlob": "b53cb32eb87dd3b33229ab9f589af2d27f9bf12d"
+    },
+    {
+      "path": "server/services/environment-connectors/session/preparation-intent-store.ts",
+      "bytes": 12519,
+      "sha256": "edc2e879fe5169880ccd836475bba9534398287c9c7264615bd8a882191567b5",
+      "gitBlob": "ce28adab4a18755659a3b8897b007b998a15ca70"
+    },
+    {
+      "path": "server/services/environment-connectors/subjects/index.ts",
+      "bytes": 584,
+      "sha256": "b7365c7293dfe802fff42ab71fd308ecfcca6f329868e764417eb7d68f9fd777",
+      "gitBlob": "dcddf49413ece62cd0e8ca914410a944abe3a1ad"
+    },
+    {
+      "path": "server/services/environment-connectors/subjects/subject-binding-store.ts",
+      "bytes": 47212,
+      "sha256": "2d71aadd577ba1a6169aa08a46698678ea421a6579150aae1394b4d413792acb",
+      "gitBlob": "b02f05e09828d5d8a74d2edf6a2f8da843efc476"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/direct-mcp-temporal-context.ts",
+      "bytes": 3054,
+      "sha256": "e5b98162b8f2158d5add67088977df82cab058dcd8810d2ce7299d1cc0a177dd",
+      "gitBlob": "b0b9848f5db90592ab936bbd1bc6f0ebfbfc127a"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/direct-mcp-temporal-registry.ts",
+      "bytes": 2695,
+      "sha256": "f618a6a1972c6abc54850f6cc8f036cffbc389742492ddf0ab771a490cb0903b",
+      "gitBlob": "f6e679bbc5a566b2c40fb4e651db03639fb3331f"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/environment-time-ledger.ts",
+      "bytes": 20400,
+      "sha256": "6e2c39ec2e7f20e0fd36b94e6f814684b36495d2ef146c62b608a75c31499d39",
+      "gitBlob": "35162f597bbdc1f74b899ec4e9ba9c416a80fa9b"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/minecraft-environment-time-compiler.ts",
+      "bytes": 19353,
+      "sha256": "b0304edd53c6e579755325c5070d9ea4345db496ec76bbe04f84a4d039927ffe",
+      "gitBlob": "2798332ee05f968e9cb6f2d8bdeac1aeae9756b1"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/resident-clock-observation.ts",
+      "bytes": 2887,
+      "sha256": "abdb44829e59e1901fbd3740e1b63abb7c2950790ffc758925b08935fd46d8c0",
+      "gitBlob": "af78f90135afdfcb220407f77d45638334f081be"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-action-actor.ts",
+      "bytes": 10605,
+      "sha256": "1b0a8eac9ad1b9d978f9232b48e008c775ebbb74f66ffeae3a233a392e08e241",
+      "gitBlob": "46af57101c1b5543a40aff41a9938120587c8f73"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-action-broker-transport.ts",
+      "bytes": 2090,
+      "sha256": "31274187645c7c24ab628c100d5760a577465bedadaab98ec02006981b0ef81a",
+      "gitBlob": "91a893bd6354a6d0c699947dd0d5ca87e279bfad"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-action-decision-snapshot.ts",
+      "bytes": 3024,
+      "sha256": "21c8d6e74e054c591a282cd2932ca365c82efb6771fa58150ee8ae5e0fff2399",
+      "gitBlob": "5d1c351f6ec97472ef5c7ed4985aaf03370188d9"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-baseline-shadow.ts",
+      "bytes": 8738,
+      "sha256": "fdee723f06c59e9f2cd58d5f16b5ba1e1427ecbde66099cdf3c74a348881c309",
+      "gitBlob": "5e183b8afcddc4638035b0e5354ca0137cc6ce0c"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-checkpoint-choice.ts",
+      "bytes": 4155,
+      "sha256": "ecb95d37fb5c060f350f21d9e8d56108883c711404b727f03c25dfbcac818ea9",
+      "gitBlob": "94cd9cd2079c235e2c25b3ebadf12228b7f14b47"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-checkpoint-public-outcome.ts",
+      "bytes": 4331,
+      "sha256": "59c8b0aa3f2059f0737609aeecd6171ac6b1bd18e32801545934a27230702119",
+      "gitBlob": "a2a2e1a9871e1e773895b6ba724c75455542f7d0"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-checkpoint-worker.ts",
+      "bytes": 9469,
+      "sha256": "312d63065fd752746f0224f1fae37bda04719bb7b06acb758c16c539652e2077",
+      "gitBlob": "20a0b649f6090b3075fbf3a707a42ece01293102"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-admission-request-schema.ts",
+      "bytes": 649,
+      "sha256": "c9214635b3fff26b30c89f72f916f772fba8502e67bdf5894eef48e241df7669",
+      "gitBlob": "2d676535b300bcf89fd38b76ceebbcdd5a680912"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-checkpoint-evidence.ts",
+      "bytes": 15597,
+      "sha256": "7dc56727c196030e48a85afdc0504547e0dba1317d1795e6618cd2e5c5538d62",
+      "gitBlob": "3ad6bb7331c47ff224f08be8d6e67ffa9833dd95"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-checkpoint-settlement.ts",
+      "bytes": 3940,
+      "sha256": "5b7314feabffe0be1c1d3d5eeeec5a2ead61de8cc317ca09a64f8d27ec130197",
+      "gitBlob": "e43a9be7e8f2582899e5867cc06e588a444215de"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-clock-envelope.ts",
+      "bytes": 1787,
+      "sha256": "53f91efbc646ec2dc33228e9ff9cb8b003d662fce6c9c4cc071f9539df9dd1c3",
+      "gitBlob": "468f09d612f6b33622bdb772b2facc295c668b46"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-correlated-budget.ts",
+      "bytes": 9935,
+      "sha256": "09db631a7edc0014c0f80a35e367a8e4847bc58cd0ae9117239f268da78ee906",
+      "gitBlob": "1293e31b1df63dc010d332ad5f929d2b13ef45b9"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-event-plan.ts",
+      "bytes": 14637,
+      "sha256": "cb474deaa78154cce3b4fa0d250a3c90f437be1464eaee73e4806affd250b328",
+      "gitBlob": "b07d56f1f60286fe44f92d8b0a95ffda6431c4b5"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-execution-association.ts",
+      "bytes": 871,
+      "sha256": "05a61f71662628d9d76c04022fa7890bdc5d0deec0a9d99b8120039e9e3db49c",
+      "gitBlob": "3d4c00d24af70fb7dd995dd8859c91d1fd203730"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-frontier-store.ts",
+      "bytes": 11442,
+      "sha256": "a548fff2d8efbecd5ed59dcdff19a341f091a0b5c9c1b1ecff4c0e00566d422f",
+      "gitBlob": "5d6e07d0c9d535b79a1d20b3aca2323f2294289f"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-observation-window.ts",
+      "bytes": 402,
+      "sha256": "4504a233f178745f116bae05878511046e9f61770a081b05d9793d7a7d6c640f",
+      "gitBlob": "28838f19d7478fc6137b6d01bb5725a301ae5f16"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-plan-error.ts",
+      "bytes": 3764,
+      "sha256": "fc225b70f3a2bd788650941a6f4a67a4547323e403f8ed76d14f6b918fb7c614",
+      "gitBlob": "f679c6372bde0b2712bff899ca5e8de8d84d9db9"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-plan-late-binding.ts",
+      "bytes": 2419,
+      "sha256": "bd02cd37227e60102ce388beb86492c28ae183b14d71e1aeb2a1b0c45763520f",
+      "gitBlob": "624bbae481531e7da4411949356127bcb4a798c7"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-publication-clock.ts",
+      "bytes": 1321,
+      "sha256": "57c7eaa34d436c234b0cb5dbb8fcac42f2dd8f5686e33d8202df0bb7d37799df",
+      "gitBlob": "bc458568ff058a40dbbb8d3058cf63777589b14b"
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-timing-budget.ts",
+      "bytes": 3023,
+      "sha256": "842e04a8b1763b921221c3f9ffe88745f2963dfd2d9ff43be47d674844ebb481",
+      "gitBlob": "c8db18c277c720301bc53393017f2d43809cb8f2"
+    },
+    {
+      "path": "server/services/environment-connectors/transport/index.ts",
+      "bytes": 182,
+      "sha256": "97e00387c6311d2f6a0da2d939240ba0031fb9401793549dc1d3265d74dcba4a",
+      "gitBlob": "2d0189ce56929c3227d958e8fc5b1fdb8fdace85"
+    }
+  ]
+}
