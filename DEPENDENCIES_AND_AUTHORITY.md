@@ -1,4 +1,4 @@
-# Dependency and authority review — private draft
+# Dependency and authority review — source-only candidate
 
 This 76-file source-only selection was excluded by a coarse authority-directory rule. It contains binding, pairing, command, action, temporal-plan, and resident-control implementation, including credential-use and local Minecraft installation paths. The source is neither a permission grant nor a runnable connector. The live account, owner policy, producer identity, admission, credential, and effect boundaries described in the canonical environment-harness contracts remain separate runtime checks.
 
@@ -6,4 +6,4 @@ TypeScript 5.6.3 parsed all 76 files without syntax diagnostics. Static import s
 
 A bounded lexical sweep found 36 files with write words, 26 with network words, 21 with auth words, and nine with credential words. These overlapping indicators do not establish a live operation or stored secret. Four files read five distinct `process.env` variable names for Windows locations or Minecraft profile/run directories; runtime values are not present in this draft. Two URL-shaped strings parsed with no URL userinfo or credential-shaped query-key names. The sweep found no user-home path or explicit copyright/SPDX/copied-from marker. Gitleaks and deeper manual review remain separate checks.
 
-Source disclosure alone does not authenticate a device, pair a player, grant a room, run a resident controller, or admit an action. No selected module was executed. The current deployed website version, external producer permissions, first-party rights, copied-content provenance, final notices/license, and an exact Public exposure decision remain open.
+Source disclosure alone does not authenticate a device, pair a player, grant a room, run a resident controller, or admit an action. No selected module was executed. The owner confirmed MIT rights for sorted first-party repository source. The final copied-content, dependency, and deployment checks remain bounded; this candidate bundles no third-party implementation. The live website still reported older source SHA `8a85e1d9a20273aa7293736ff39183dbc82dcc2a` at the October 18 review, so no live-auth or action-safety conclusion follows. Exact Public exposure and GitHub readback remain open. The historical full-platform repository remains private.
