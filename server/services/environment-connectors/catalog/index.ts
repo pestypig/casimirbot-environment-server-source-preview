@@ -726,6 +726,7 @@ const minecraftNearbyEntitiesOutputSchema: HelixEnvironmentConstrainedJsonSchema
     properties: {
       result_summary: { type: "string", maxLength: 2_000 },
       entity_count: { type: "integer", minimum: 0, maximum: 512 },
+      entities_complete: { type: "boolean" },
       entities: {
         type: "array",
         maxItems: 128,
@@ -744,6 +745,15 @@ const minecraftNearbyEntitiesOutputSchema: HelixEnvironmentConstrainedJsonSchema
               maximum: 1_024,
             },
             targeting_actor: { type: "boolean" },
+            block_bounds: {
+              type: "object",
+              properties: {
+                min: minecraftPositionSchema,
+                max: minecraftPositionSchema,
+              },
+              required: ["min", "max"],
+              additionalProperties: false,
+            },
             health: { type: "number", minimum: 0, maximum: 2_147_483_647 },
             max_health: {
               type: "number",
@@ -978,6 +988,11 @@ const minecraftSpatialRegionInputSchema: HelixEnvironmentConstrainedJsonSchema =
         description:
           "Vertical survey radius in blocks; defaults to 6. Use up to 16 for bounded landing-safety inspection below an elevated actor.",
       },
+      focus_position: {
+        ...minecraftPositionSchema,
+        description:
+          "For build_planning, retain columns nearest this candidate first. The surveyed bounds remain centered on the selected actor.",
+      },
       purpose: {
         type: "string",
         enum: [
@@ -1062,6 +1077,7 @@ const minecraftSpatialRegionOutputSchema: HelixEnvironmentConstrainedJsonSchema 
         ],
       },
       center: minecraftPositionSchema,
+      focus_position: minecraftPositionSchema,
       horizontal_radius: { type: "integer", minimum: 1, maximum: 7 },
       vertical_radius: { type: "integer", minimum: 1, maximum: 16 },
       requested_length: { type: "integer", minimum: 3, maximum: 15 },

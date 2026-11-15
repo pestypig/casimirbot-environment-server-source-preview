@@ -1,0 +1,702 @@
+{
+  "schema": "casimirbot.selected_source_freeze.v1",
+  "observed_at": "2026-11-15T09:13:47.192544+00:00",
+  "canonical_source_commit": "7e5414c4b2eaac794f8cb0a46bfa53570631c68a",
+  "release_tag": "desktop-v0.1.0-alpha.83",
+  "public_base_head": "c3c487931ff845e1a2580543f25a41e041f98583",
+  "selected_files": 76,
+  "files": [
+    {
+      "path": "server/services/environment-connectors/actions/authority-store.ts",
+      "canonical_sha256": "7bbd742714a6c3e17f23691473c9a7190c9311e3b3f9f63c5c3392b312164411",
+      "export_sha256": "7bbd742714a6c3e17f23691473c9a7190c9311e3b3f9f63c5c3392b312164411",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/actions/reactive-checkpoint-measurements.ts",
+      "canonical_sha256": "4f9833ccd09d4049c5ced225953302742aca6551728d071939e524a059f8b1a8",
+      "export_sha256": "4f9833ccd09d4049c5ced225953302742aca6551728d071939e524a059f8b1a8",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/actions/root-action-lease-query.ts",
+      "canonical_sha256": "d939bad6d55a73229ae7bc93c4b89e3f3bb6d7a677aefb2f6ff8f3c4dfd92e01",
+      "export_sha256": "d939bad6d55a73229ae7bc93c4b89e3f3bb6d7a677aefb2f6ff8f3c4dfd92e01",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/actions/temporal-admission-publication.ts",
+      "canonical_sha256": "5fc3685b174527fa6e4737782e167690a94f3498ab2f9184ff41e4e38081870f",
+      "export_sha256": "5fc3685b174527fa6e4737782e167690a94f3498ab2f9184ff41e4e38081870f",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/actions/temporal-delivery-status.ts",
+      "canonical_sha256": "0d3d5e11de8db1bc5012f505252dec1efd514035693231cc8699424ea3b7be58",
+      "export_sha256": "0d3d5e11de8db1bc5012f505252dec1efd514035693231cc8699424ea3b7be58",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/actions/temporal-epoch-gap.ts",
+      "canonical_sha256": "8d2d0a0f0545df171963a452745535c80eec45fb72467912341919332dd26652",
+      "export_sha256": "8d2d0a0f0545df171963a452745535c80eec45fb72467912341919332dd26652",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/actions/temporal-successor-query.ts",
+      "canonical_sha256": "049eceb9d6890ffc7d3d720cf20220c2e1b6e0ca8ef20239dd9c688280935ada",
+      "export_sha256": "049eceb9d6890ffc7d3d720cf20220c2e1b6e0ca8ef20239dd9c688280935ada",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/actions/workflow-differential-audit.ts",
+      "canonical_sha256": "e78d166d3c7b2efb227dda909413bc38f98c5db6ac0449a940e333fa722383ef",
+      "export_sha256": "e78d166d3c7b2efb227dda909413bc38f98c5db6ac0449a940e333fa722383ef",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/actions/workflow-differential-trace-capture.ts",
+      "canonical_sha256": "a4e008c3cc139f4f7d68582ebe01736e08edd5d990afe7e632dd9ebdab01e927",
+      "export_sha256": "a4e008c3cc139f4f7d68582ebe01736e08edd5d990afe7e632dd9ebdab01e927",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/actions/workflow-g2-parity-audit.ts",
+      "canonical_sha256": "e940d5a154e732895910c99c8ef53e4e355d505e3f403e3635e56831659bc8e5",
+      "export_sha256": "e940d5a154e732895910c99c8ef53e4e355d505e3f403e3635e56831659bc8e5",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/bindings/local-supervisor-identity-reader.ts",
+      "canonical_sha256": "427a805ea5df47c83f5879cc8ffeafe89f399be4f442c580cbab92e166cb60e6",
+      "export_sha256": "427a805ea5df47c83f5879cc8ffeafe89f399be4f442c580cbab92e166cb60e6",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/brokerage/brokerage-resident-bootstrap.ts",
+      "canonical_sha256": "354211304eb7e01e6d89f74857e0627273df2165727d08586875b50002cc24c5",
+      "export_sha256": "354211304eb7e01e6d89f74857e0627273df2165727d08586875b50002cc24c5",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/brokerage/g7-transfer-audit.ts",
+      "canonical_sha256": "ae88592862ba3c8d567f9cb97c609013295d097cb1ee0b7a723fdfce5df975f3",
+      "export_sha256": "ae88592862ba3c8d567f9cb97c609013295d097cb1ee0b7a723fdfce5df975f3",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/catalog/index.ts",
+      "canonical_sha256": "16b1de9e11901758a8d70132b3e1f8e917acfd240ebffdbafe72d83dd05c2dc7",
+      "export_sha256": "9e3c8ec28f44173d7653eed4bcd431d5dfb7964cd290e78b9775dfd275ded79a",
+      "status": "line_endings_only",
+      "review_inventories": [
+        "SOURCE_ADDENDUM_CONSOLIDATED_R384_CANDIDATE.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/commands/authority-policy.ts",
+      "canonical_sha256": "f0b779ee787395d68a7e95613611d7750cc967bfaa8196fba63fe6a925207739",
+      "export_sha256": "f0b779ee787395d68a7e95613611d7750cc967bfaa8196fba63fe6a925207739",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/commands/authority-store.ts",
+      "canonical_sha256": "fd5170898de15db48bc020c114120f8a9aad876a6b3f91d418f525fbf852684e",
+      "export_sha256": "1e7f01a89b759f0900d8c99c05ce33d48fe276163fb8d52d7780b9f8607422a6",
+      "status": "line_endings_only",
+      "review_inventories": [
+        "SOURCE_ADDENDUM_CONSOLIDATED_R384_CANDIDATE.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/commands/command-subject-policy.ts",
+      "canonical_sha256": "ae871a51c943e9d42f0924d9cad1834eee40643f8afa0cd476ddaac4620e0f9d",
+      "export_sha256": "ae871a51c943e9d42f0924d9cad1834eee40643f8afa0cd476ddaac4620e0f9d",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/conformance/index.ts",
+      "canonical_sha256": "6e23e2f27f79181e55e808b924b29afd4dfd9d9727cc653a7ba90c35bf000636",
+      "export_sha256": "6e23e2f27f79181e55e808b924b29afd4dfd9d9727cc653a7ba90c35bf000636",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/conformance/schema-validator.ts",
+      "canonical_sha256": "ddf4329b2338c7cde33cf91f9afc2a2d80ca14e2bc4d8864b06a74a66cc286bf",
+      "export_sha256": "ddf4329b2338c7cde33cf91f9afc2a2d80ca14e2bc4d8864b06a74a66cc286bf",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/credential-use-throttle.ts",
+      "canonical_sha256": "6481f8cf32f03225ee83d8b8010a519a9da3d32ba882ea67d894d2852ef685b2",
+      "export_sha256": "6481f8cf32f03225ee83d8b8010a519a9da3d32ba882ea67d894d2852ef685b2",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/devices/device-check.ts",
+      "canonical_sha256": "8b21d895d9a59c671410456285099b6e98bc9e6cc4a7b8e81cec455afd03589f",
+      "export_sha256": "8b21d895d9a59c671410456285099b6e98bc9e6cc4a7b8e81cec455afd03589f",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/devices/index.ts",
+      "canonical_sha256": "5acf569f8c69e964c14fd2e62d72e81ea691f3bd34292da855a879ef3c5ab9b4",
+      "export_sha256": "5acf569f8c69e964c14fd2e62d72e81ea691f3bd34292da855a879ef3c5ab9b4",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/goals/durable-goal-store.ts",
+      "canonical_sha256": "ac76544c8dcb23139a33f304c054f4901518e53909e5f4346f5ced9a10ec2d5e",
+      "export_sha256": "ac76544c8dcb23139a33f304c054f4901518e53909e5f4346f5ced9a10ec2d5e",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/goals/index.ts",
+      "canonical_sha256": "316b12cf146ff57ec672abcb2361650f7da3768ec88c535c51000d9c7ff0815b",
+      "export_sha256": "316b12cf146ff57ec672abcb2361650f7da3768ec88c535c51000d9c7ff0815b",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/installations/index.ts",
+      "canonical_sha256": "6e8f469f7663c4c2ac230964543a30b96f73974f7932818e9fb7acb2c11e56a3",
+      "export_sha256": "6e8f469f7663c4c2ac230964543a30b96f73974f7932818e9fb7acb2c11e56a3",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/installations/minecraft-fabric-loopback-lifecycle.ts",
+      "canonical_sha256": "239d32c298c95c8300b60708faf9c5bd3b5244f8b140c499faccd3d658fba1f9",
+      "export_sha256": "b6fb651bd2e17502361dbf93579c99e062df2e7c387cd9021b39025f9c242470",
+      "status": "line_endings_only",
+      "review_inventories": [
+        "SOURCE_ADDENDUM_CONSOLIDATED_R384_CANDIDATE.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/installations/minecraft-local-server-lifecycle.ts",
+      "canonical_sha256": "7bc0e6f55d0fc2b42c039e890b85184b4d46ec8fccb92828fcf444d91e592575",
+      "export_sha256": "7bc0e6f55d0fc2b42c039e890b85184b4d46ec8fccb92828fcf444d91e592575",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/monitoring/brokerage-market-observer-semantic-source.ts",
+      "canonical_sha256": "2239f36af14499c52dcdd0baca54308c3c6080857afd732035fbf96586b158bc",
+      "export_sha256": "2239f36af14499c52dcdd0baca54308c3c6080857afd732035fbf96586b158bc",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/monitoring/environment-monitor-semantic-source.ts",
+      "canonical_sha256": "fbbec441e3d7e1a1b6072beeb788401bdba545cab0748edbf9bd9642b663cd37",
+      "export_sha256": "fbbec441e3d7e1a1b6072beeb788401bdba545cab0748edbf9bd9642b663cd37",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/monitoring/environment-monitor-store.ts",
+      "canonical_sha256": "dd2e28e4d2e9422f4129a677a166049768c84f4d3834e5c9d0ea6178fda78c70",
+      "export_sha256": "dd2e28e4d2e9422f4129a677a166049768c84f4d3834e5c9d0ea6178fda78c70",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/navigation/minecraft-native-collision-replay.ts",
+      "canonical_sha256": "8d641091a9bfd07535442e9668e2790aa57b6b4d5f2444decf41b1b4ddbe8c86",
+      "export_sha256": "8d641091a9bfd07535442e9668e2790aa57b6b4d5f2444decf41b1b4ddbe8c86",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/navigation/minecraft-navigation-collision-observation.ts",
+      "canonical_sha256": "6e82d034722c7eaaad878108ad08f2b0804065409819804cc94fed93e285c94b",
+      "export_sha256": "6e82d034722c7eaaad878108ad08f2b0804065409819804cc94fed93e285c94b",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/navigation/minecraft-navigation-collision-schema.ts",
+      "canonical_sha256": "e3e207fcb38898b6dbca23820a49acc945c4d453a8f4e398a6472296d5999adb",
+      "export_sha256": "e3e207fcb38898b6dbca23820a49acc945c4d453a8f4e398a6472296d5999adb",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/navigation/minecraft-voxel-topology.ts",
+      "canonical_sha256": "eff0cc988c86abcf5e343a7ed6e342f1824a2e0469cd5e2a8d4cdfe277615e3a",
+      "export_sha256": "eff0cc988c86abcf5e343a7ed6e342f1824a2e0469cd5e2a8d4cdfe277615e3a",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/pairing/local-minecraft-run-profile-store.ts",
+      "canonical_sha256": "6c0a29198e622f90b5abcb7099ee94d409d0e71fe01fb08013a2e730b604829a",
+      "export_sha256": "3c6ad3ee88ab67d8c789f5a605a442b05c86288ff8c39ed76503065a8e147512",
+      "status": "line_endings_only",
+      "review_inventories": [
+        "SOURCE_ADDENDUM_CONSOLIDATED_R384_CANDIDATE.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/pairing/local-player-pairing-handoff.ts",
+      "canonical_sha256": "0e5f2e84333f9e38ec96b3db02d551e71633c580a98dd9e1b13132e73fe55e14",
+      "export_sha256": "0e5f2e84333f9e38ec96b3db02d551e71633c580a98dd9e1b13132e73fe55e14",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/pairing/local-server-pairing-handoff.ts",
+      "canonical_sha256": "75c388f172e7d807b7e95ffb15e28b9bbf608084b2115cba8228f6a42dbf1c12",
+      "export_sha256": "0ef1b8737bedc06f7b13cfcdb521aacfe92271fa6a7184749022cd75d1df1f40",
+      "status": "line_endings_only",
+      "review_inventories": [
+        "SOURCE_ADDENDUM_CONSOLIDATED_R384_CANDIDATE.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/profiles/index.ts",
+      "canonical_sha256": "6281d13bcf9cd9c33f7352819e27989a59d5da9fb8894e681088f419ecffdbf5",
+      "export_sha256": "6281d13bcf9cd9c33f7352819e27989a59d5da9fb8894e681088f419ecffdbf5",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/profiles/room-read-grant-lifecycle.ts",
+      "canonical_sha256": "a34975f0cfadc3750c71fc3c141499b8c2283d1ca3d225b3b0359288159ddfb1",
+      "export_sha256": "a34975f0cfadc3750c71fc3c141499b8c2283d1ca3d225b3b0359288159ddfb1",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/reasoning-roles/environment-reasoning-role-audit.ts",
+      "canonical_sha256": "7c4ead2c72fa8deb5d01406c88c93627c791acb28d3ece5041bde8c7b0b2325d",
+      "export_sha256": "7c4ead2c72fa8deb5d01406c88c93627c791acb28d3ece5041bde8c7b0b2325d",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/reasoning-roles/environment-reasoning-role-store.ts",
+      "canonical_sha256": "da7e2ae32e938be9c49ab8d66b14d2870394577bfb1ee0808b278a5739dda9cf",
+      "export_sha256": "da7e2ae32e938be9c49ab8d66b14d2870394577bfb1ee0808b278a5739dda9cf",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/resident-control/companion-presence-store.ts",
+      "canonical_sha256": "d7b141c3329957bb8fade94d3d8a845bd648dcdaac590444dcf877e0aa262399",
+      "export_sha256": "d7b141c3329957bb8fade94d3d8a845bd648dcdaac590444dcf877e0aa262399",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/resident-control/private-companion-custody-evidence-reader.ts",
+      "canonical_sha256": "3ffe6e446028e71a2c42f2e178e5a9842df0a0fac5450f0e26e2d1f3049eab16",
+      "export_sha256": "3ffe6e446028e71a2c42f2e178e5a9842df0a0fac5450f0e26e2d1f3049eab16",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/resident-control/private-companion-follow-evidence-reader.ts",
+      "canonical_sha256": "7f36c96890c6942eb0d67e34660659bfcce2e3eae1d781ba3b1a5883c85520a9",
+      "export_sha256": "7f36c96890c6942eb0d67e34660659bfcce2e3eae1d781ba3b1a5883c85520a9",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/resident-control/private-companion-mining-evidence-reader.ts",
+      "canonical_sha256": "9372d7068460571844e5b716511df226df80d317c8edd909202f0e7a00113098",
+      "export_sha256": "9372d7068460571844e5b716511df226df80d317c8edd909202f0e7a00113098",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/resident-control/private-companion-presence-evidence-reader.ts",
+      "canonical_sha256": "9e88cb03483967bf2f3bec622055de474f20790e48a5b79f6af30343acfb3d17",
+      "export_sha256": "9e88cb03483967bf2f3bec622055de474f20790e48a5b79f6af30343acfb3d17",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/session/preparation-intent-runtime.ts",
+      "canonical_sha256": "681fd3083972ce84005aa583193f484014d6c173f736b290c23ac4644033076e",
+      "export_sha256": "681fd3083972ce84005aa583193f484014d6c173f736b290c23ac4644033076e",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/session/preparation-intent-store.ts",
+      "canonical_sha256": "edc2e879fe5169880ccd836475bba9534398287c9c7264615bd8a882191567b5",
+      "export_sha256": "edc2e879fe5169880ccd836475bba9534398287c9c7264615bd8a882191567b5",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/subjects/index.ts",
+      "canonical_sha256": "b7365c7293dfe802fff42ab71fd308ecfcca6f329868e764417eb7d68f9fd777",
+      "export_sha256": "b7365c7293dfe802fff42ab71fd308ecfcca6f329868e764417eb7d68f9fd777",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/subjects/subject-binding-store.ts",
+      "canonical_sha256": "2d71aadd577ba1a6169aa08a46698678ea421a6579150aae1394b4d413792acb",
+      "export_sha256": "2d71aadd577ba1a6169aa08a46698678ea421a6579150aae1394b4d413792acb",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/direct-mcp-temporal-context.ts",
+      "canonical_sha256": "e5b98162b8f2158d5add67088977df82cab058dcd8810d2ce7299d1cc0a177dd",
+      "export_sha256": "e5b98162b8f2158d5add67088977df82cab058dcd8810d2ce7299d1cc0a177dd",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/direct-mcp-temporal-registry.ts",
+      "canonical_sha256": "f618a6a1972c6abc54850f6cc8f036cffbc389742492ddf0ab771a490cb0903b",
+      "export_sha256": "f618a6a1972c6abc54850f6cc8f036cffbc389742492ddf0ab771a490cb0903b",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/environment-time-ledger.ts",
+      "canonical_sha256": "6e2c39ec2e7f20e0fd36b94e6f814684b36495d2ef146c62b608a75c31499d39",
+      "export_sha256": "6e2c39ec2e7f20e0fd36b94e6f814684b36495d2ef146c62b608a75c31499d39",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/minecraft-environment-time-compiler.ts",
+      "canonical_sha256": "b0304edd53c6e579755325c5070d9ea4345db496ec76bbe04f84a4d039927ffe",
+      "export_sha256": "b0304edd53c6e579755325c5070d9ea4345db496ec76bbe04f84a4d039927ffe",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/resident-clock-observation.ts",
+      "canonical_sha256": "0cc1f3ad03ef1e664f36f8baa2e43d7eb5376d56d2a399dc3a863178494cdaa5",
+      "export_sha256": "abdb44829e59e1901fbd3740e1b63abb7c2950790ffc758925b08935fd46d8c0",
+      "status": "line_endings_only",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-action-actor.ts",
+      "canonical_sha256": "1b0a8eac9ad1b9d978f9232b48e008c775ebbb74f66ffeae3a233a392e08e241",
+      "export_sha256": "1b0a8eac9ad1b9d978f9232b48e008c775ebbb74f66ffeae3a233a392e08e241",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-action-broker-transport.ts",
+      "canonical_sha256": "e08ceacc68e4d101af4369f515ed934aacb81bad1aca56988e756657ef76cbad",
+      "export_sha256": "e08ceacc68e4d101af4369f515ed934aacb81bad1aca56988e756657ef76cbad",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_ADDENDUM_CONSOLIDATED_R384_CANDIDATE.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-action-decision-snapshot.ts",
+      "canonical_sha256": "21c8d6e74e054c591a282cd2932ca365c82efb6771fa58150ee8ae5e0fff2399",
+      "export_sha256": "21c8d6e74e054c591a282cd2932ca365c82efb6771fa58150ee8ae5e0fff2399",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-baseline-shadow.ts",
+      "canonical_sha256": "e6268b445553c95a4fb15035a22c226c5b7e5b8cb04bdbc5bae6bd15e7f62499",
+      "export_sha256": "e6268b445553c95a4fb15035a22c226c5b7e5b8cb04bdbc5bae6bd15e7f62499",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_ADDENDUM_CONSOLIDATED_R384_CANDIDATE.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-checkpoint-choice.ts",
+      "canonical_sha256": "ecb95d37fb5c060f350f21d9e8d56108883c711404b727f03c25dfbcac818ea9",
+      "export_sha256": "ecb95d37fb5c060f350f21d9e8d56108883c711404b727f03c25dfbcac818ea9",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-checkpoint-public-outcome.ts",
+      "canonical_sha256": "59c8b0aa3f2059f0737609aeecd6171ac6b1bd18e32801545934a27230702119",
+      "export_sha256": "59c8b0aa3f2059f0737609aeecd6171ac6b1bd18e32801545934a27230702119",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-checkpoint-worker.ts",
+      "canonical_sha256": "312d63065fd752746f0224f1fae37bda04719bb7b06acb758c16c539652e2077",
+      "export_sha256": "312d63065fd752746f0224f1fae37bda04719bb7b06acb758c16c539652e2077",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-admission-request-schema.ts",
+      "canonical_sha256": "c9214635b3fff26b30c89f72f916f772fba8502e67bdf5894eef48e241df7669",
+      "export_sha256": "c9214635b3fff26b30c89f72f916f772fba8502e67bdf5894eef48e241df7669",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-checkpoint-evidence.ts",
+      "canonical_sha256": "642a144df2949cc8c58e08f12e5ffb39bbc9b8ae0072a84826bd4b55c1726c1c",
+      "export_sha256": "642a144df2949cc8c58e08f12e5ffb39bbc9b8ae0072a84826bd4b55c1726c1c",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_ADDENDUM_CONSOLIDATED_R384_CANDIDATE.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-checkpoint-settlement.ts",
+      "canonical_sha256": "5b7314feabffe0be1c1d3d5eeeec5a2ead61de8cc317ca09a64f8d27ec130197",
+      "export_sha256": "5b7314feabffe0be1c1d3d5eeeec5a2ead61de8cc317ca09a64f8d27ec130197",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-clock-envelope.ts",
+      "canonical_sha256": "53f91efbc646ec2dc33228e9ff9cb8b003d662fce6c9c4cc071f9539df9dd1c3",
+      "export_sha256": "53f91efbc646ec2dc33228e9ff9cb8b003d662fce6c9c4cc071f9539df9dd1c3",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-correlated-budget.ts",
+      "canonical_sha256": "09db631a7edc0014c0f80a35e367a8e4847bc58cd0ae9117239f268da78ee906",
+      "export_sha256": "09db631a7edc0014c0f80a35e367a8e4847bc58cd0ae9117239f268da78ee906",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-event-plan.ts",
+      "canonical_sha256": "cb474deaa78154cce3b4fa0d250a3c90f437be1464eaee73e4806affd250b328",
+      "export_sha256": "cb474deaa78154cce3b4fa0d250a3c90f437be1464eaee73e4806affd250b328",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-execution-association.ts",
+      "canonical_sha256": "05a61f71662628d9d76c04022fa7890bdc5d0deec0a9d99b8120039e9e3db49c",
+      "export_sha256": "05a61f71662628d9d76c04022fa7890bdc5d0deec0a9d99b8120039e9e3db49c",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-frontier-store.ts",
+      "canonical_sha256": "a548fff2d8efbecd5ed59dcdff19a341f091a0b5c9c1b1ecff4c0e00566d422f",
+      "export_sha256": "a548fff2d8efbecd5ed59dcdff19a341f091a0b5c9c1b1ecff4c0e00566d422f",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-observation-window.ts",
+      "canonical_sha256": "4504a233f178745f116bae05878511046e9f61770a081b05d9793d7a7d6c640f",
+      "export_sha256": "4504a233f178745f116bae05878511046e9f61770a081b05d9793d7a7d6c640f",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-plan-error.ts",
+      "canonical_sha256": "fc225b70f3a2bd788650941a6f4a67a4547323e403f8ed76d14f6b918fb7c614",
+      "export_sha256": "fc225b70f3a2bd788650941a6f4a67a4547323e403f8ed76d14f6b918fb7c614",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-plan-late-binding.ts",
+      "canonical_sha256": "bd02cd37227e60102ce388beb86492c28ae183b14d71e1aeb2a1b0c45763520f",
+      "export_sha256": "bd02cd37227e60102ce388beb86492c28ae183b14d71e1aeb2a1b0c45763520f",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-publication-clock.ts",
+      "canonical_sha256": "57c7eaa34d436c234b0cb5dbb8fcac42f2dd8f5686e33d8202df0bb7d37799df",
+      "export_sha256": "57c7eaa34d436c234b0cb5dbb8fcac42f2dd8f5686e33d8202df0bb7d37799df",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/temporal-timing-budget.ts",
+      "canonical_sha256": "842e04a8b1763b921221c3f9ffe88745f2963dfd2d9ff43be47d674844ebb481",
+      "export_sha256": "842e04a8b1763b921221c3f9ffe88745f2963dfd2d9ff43be47d674844ebb481",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/transport/index.ts",
+      "canonical_sha256": "97e00387c6311d2f6a0da2d939240ba0031fb9401793549dc1d3265d74dcba4a",
+      "export_sha256": "97e00387c6311d2f6a0da2d939240ba0031fb9401793549dc1d3265d74dcba4a",
+      "status": "identity",
+      "review_inventories": [
+        "SOURCE_SELECTION.json"
+      ]
+    }
+  ],
+  "exceptions": [],
+  "limits": [
+    "Selected first-party source preview only; not a standalone CasimirBot build or complete dependency closure.",
+    "Existing synthetic fixture transformations, dependency disclosures and rights notices remain applicable.",
+    "Held older files are explicit exceptions to the commit pin.",
+    "Historical candidate notes retain their original dates; this inventory supplies the final source identity.",
+    "Source publication does not establish signed-installer, deployed website, scientific certification or live-game acceptance."
+  ]
+}

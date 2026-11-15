@@ -20,6 +20,10 @@ const SCRIPT_RELATIVE_PATH = path.join(
 );
 const MAX_OUTPUT_BYTES = 64 * 1024;
 const EXECUTION_TIMEOUT_MS = 190_000;
+// The MCP caller has a shorter deadline than the combined server/client script
+// timeouts. Return a typed partial outcome before that deadline so a started
+// server can be reconciled without blindly repeating the launch.
+const MCP_LIFECYCLE_BUDGET_MS = 100_000;
 
 export class MinecraftLocalLifecycleError extends Error {
   public readonly serverObservation: HelixMinecraftLocalServerLifecycle | null;
@@ -131,6 +135,9 @@ const defaultRunner: MinecraftLocalLifecycleRunner = async (input) => {
     );
   }
   if (!input.ownerProfileId) throw new MinecraftLocalLifecycleError("minecraft_local_lifecycle_profile_required", 403);
+  const timeoutSignal = AbortSignal.timeout(MCP_LIFECYCLE_BUDGET_MS);
+  const signal = input.signal
+    ? AbortSignal.any([input.signal, timeoutSignal]) : timeoutSignal;
   const selection = await resolveProfileOwnedMinecraftLifecycleSelection({
     ownerProfileId: input.ownerProfileId,
     storePath: process.env.HELIX_DESKTOP_MINECRAFT_PROFILE_STORE,
@@ -141,10 +148,13 @@ const defaultRunner: MinecraftLocalLifecycleRunner = async (input) => {
   try {
     if (input.allowServerStartup) {
       serverObservation = await startSavedMinecraftFabricServer({
-        runDirectory: selection.runDirectory, address: input.address, signal: input.signal,
+        runDirectory: selection.runDirectory, address: input.address, signal,
       });
     }
   } catch (error) {
+    if (timeoutSignal.aborted) throw new MinecraftLocalLifecycleError(
+      "minecraft_local_lifecycle_timeout", 504, "minecraft_local_lifecycle_timeout",
+      error instanceof MinecraftLocalServerLifecycleError ? error.observation : null);
     if (error instanceof MinecraftLocalServerLifecycleError) throw new MinecraftLocalLifecycleError(
       error.code, 409, error.code, error.observation);
     throw new MinecraftLocalLifecycleError("minecraft_server_lifecycle_unavailable", 503);
@@ -175,13 +185,16 @@ const defaultRunner: MinecraftLocalLifecycleRunner = async (input) => {
         windowsHide: true,
         timeout: EXECUTION_TIMEOUT_MS,
         maxBuffer: MAX_OUTPUT_BYTES,
-        signal: input.signal,
+        signal,
         encoding: "utf8",
       },
     );
     return { ...parseMinecraftLocalLifecycleReceipt(result.stdout),
       ...(serverObservation ? { server_lifecycle: serverObservation } : {}) };
   } catch (error) {
+    if (timeoutSignal.aborted) throw new MinecraftLocalLifecycleError(
+      "minecraft_local_lifecycle_timeout", 504,
+      "minecraft_local_lifecycle_timeout", serverObservation);
     const normalized = normalizeFailure(error);
     throw new MinecraftLocalLifecycleError(normalized.code, normalized.statusCode, normalized.code, serverObservation);
   }

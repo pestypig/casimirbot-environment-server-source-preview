@@ -5,6 +5,7 @@ import { helixEnvironmentActionWorkflowEventSchema } from "@shared/helix-environ
 import { environmentConnectorSha256 } from "../catalog";
 import { helixEnvironmentTimeSha256 } from "@shared/helix-environment-time";
 import { verifyTemporalCheckpointSettlement } from "./temporal-checkpoint-settlement";
+import { verifyNativeNavigationReaction } from "./responses-native-navigation-reaction";
 
 const json = (value: unknown): any => typeof value === "string" ? JSON.parse(value) : value;
 
@@ -130,6 +131,11 @@ export async function readTemporalCheckpointEvidence(db: Pick<PoolClient, "query
       latestActionEvent.clock.monotonic.elapsed_ms < actionEvent.clock.monotonic.elapsed_ms) {
     throw new TemporalPlanError("temporal_checkpoint_clock_unmapped");
   }
+  const nativeNavigationReaction = verifyNativeNavigationReaction({
+    environmentMeasurements: measurements,
+    pairedActionMeasurements: actionEvent.measurements,
+    latestActionMeasurements: latestActionEvent.measurements,
+  });
   const settlement = verifyTemporalCheckpointSettlement({ ...input, settlements: measurements?.checkpoint_settlements });
   const clock = event.attributes.clock as Record<string, unknown> | undefined;
   const worldTick = clock?.world_tick_index;
@@ -197,7 +203,7 @@ export async function readTemporalCheckpointEvidence(db: Pick<PoolClient, "query
   if (!referencedVerified) throw new TemporalPlanError("temporal_checkpoint_reference_unverified");
   return { ...settlement, checkpoint_anchor: anchor, event_id: input.eventId, event_hash: referenced.event_hash as string,
     latest_event_id: event.event_id, latest_event_hash: row.event_hash as string,
-    world_tick_index: worldTick,
+    world_tick_index: worldTick, native_navigation_reaction: nativeNavigationReaction,
     action_event_id: actionEvent.event_id, action_event_hash: actionRow.event_hash as string,
     event_sequence: event.sequence, observed_at: event.observed_at, action_request_id: input.actionRequestId,
     resident_action_request_id: residentActionId,

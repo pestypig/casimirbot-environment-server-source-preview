@@ -1,4 +1,4 @@
-import { readFile, stat } from "node:fs/promises";
+import { lstat, readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 
 const STORE_SCHEMA_V1 = "casimirbot.local_minecraft_run_profiles/1" as const;
@@ -188,4 +188,82 @@ export const resolveProfileOwnedMinecraftPlayerGameDirectory = async (input: {
   return directory?.isDirectory() && config?.isDirectory() && mods?.isDirectory()
     ? gameDirectory
     : null;
+};
+
+const INTEGRATED_WORLD_STORE_RELATIVE_PATH = path.join(
+  "@casimirbot", "desktop", "state", "local-minecraft-integrated-world-profiles.json",
+);
+const integratedWorldStorePath = (input: {
+  appDataPath?: string | null; storePath?: string | null;
+}): string | null => {
+  const appDataPath = input.appDataPath?.trim();
+  return input.storePath?.trim() || (appDataPath && path.isAbsolute(appDataPath)
+    ? path.join(path.resolve(appDataPath), INTEGRATED_WORLD_STORE_RELATIVE_PATH)
+    : null);
+};
+
+/** A missing or invalid saved selection must not silently pair a different server. */
+export const hasProfileOwnedMinecraftIntegratedWorldSelection = async (input: {
+  ownerProfileId: string; appDataPath?: string | null; storePath?: string | null;
+}): Promise<boolean> => {
+  const file = integratedWorldStorePath(input);
+  if (!file || !input.ownerProfileId.trim()) return false;
+  try {
+    const info = await lstat(file);
+    if (!info.isFile() || info.isSymbolicLink() || info.size > MAX_STORE_BYTES) return true;
+    const data = JSON.parse(await readFile(file, "utf8")) as {
+      schema?: unknown; profiles?: unknown;
+    };
+    if (data.schema !== "casimirbot.local_minecraft_integrated_world_profiles/1" ||
+        !Array.isArray(data.profiles)) return true;
+    return data.profiles.some(entry => Boolean(entry) && typeof entry === "object" &&
+      (entry as Record<string, unknown>).owner_profile_id === input.ownerProfileId);
+  } catch (error) {
+    return (error as NodeJS.ErrnoException).code !== "ENOENT";
+  }
+};
+
+/** The native owner picker saves this exact world; MCP callers cannot supply a path. */
+export const resolveProfileOwnedMinecraftIntegratedWorld = async (input: {
+  ownerProfileId: string; appDataPath?: string | null; storePath?: string | null;
+}): Promise<{ gameDirectory: string; worldFolder: string } | null> => {
+  const file = integratedWorldStorePath(input);
+  if (!file || !input.ownerProfileId.trim()) return null;
+  try {
+    const fileInfo = await lstat(file);
+    if (!fileInfo.isFile() || fileInfo.isSymbolicLink() ||
+        fileInfo.size <= 0 || fileInfo.size > MAX_STORE_BYTES) return null;
+    const data = JSON.parse(await readFile(file, "utf8")) as {
+      schema?: unknown; profiles?: unknown;
+    };
+    if (data.schema !== "casimirbot.local_minecraft_integrated_world_profiles/1" ||
+        !Array.isArray(data.profiles)) return null;
+    const matches = data.profiles.filter((candidate): candidate is {
+      owner_profile_id: string; game_directory: string; world_folder: string;
+    } => Boolean(candidate) && typeof candidate === "object" &&
+      !Array.isArray(candidate) && Object.keys(candidate).length === 3 &&
+      (candidate as Record<string, unknown>).owner_profile_id === input.ownerProfileId);
+    if (matches.length !== 1) return null;
+    const entry = matches[0];
+    const gameDirectory = exactLocalWindowsDirectory(entry.game_directory);
+    const worldFolder = entry.world_folder;
+    if (!gameDirectory || typeof worldFolder !== "string" ||
+        !worldFolder || worldFolder === "." || worldFolder === ".." ||
+        worldFolder.length > 255 || /[\\/:<>"|?*\u0000-\u001f]/u.test(worldFolder) ||
+        /[. ]$/u.test(worldFolder) ||
+        path.win32.basename(worldFolder) !== worldFolder) return null;
+    const configDirectory = path.join(gameDirectory, "config");
+    const modsDirectory = path.join(gameDirectory, "mods");
+    const savesDirectory = path.join(gameDirectory, "saves");
+    const worldDirectory = path.join(savesDirectory, worldFolder);
+    const dirs = await Promise.all([
+      gameDirectory, configDirectory, modsDirectory, savesDirectory, worldDirectory,
+    ].map(dir => lstat(dir)));
+    if (dirs.some(info => !info.isDirectory() || info.isSymbolicLink())) return null;
+    const level = await lstat(path.join(worldDirectory, "level.dat"));
+    if (!level.isFile() || level.isSymbolicLink()) return null;
+    const mods = await readdir(modsDirectory);
+    if (!mods.some(name => /^HelixFabricSensor-[\w.+-]+\.jar$/iu.test(name))) return null;
+    return { gameDirectory, worldFolder };
+  } catch { return null; }
 };

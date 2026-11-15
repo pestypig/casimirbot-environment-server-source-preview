@@ -20,6 +20,7 @@ import {
 import type { Queryable } from
   "../../helix-ask/realtime-room/room-store/types";
 import { environmentCommandProfileAtMost } from "./authority-policy";
+import { resolveCurrentVoiceCommandActor } from "./voice-command-actor";
 import { requestDesktopMcpTunnelReadOnlyForSafety } from
   "../../local-supervisor/desktop-mcp-tunnel-safety";
 
@@ -28,6 +29,7 @@ export type EnvironmentCommandAuthorityErrorCode =
   | "command_environment_not_found"
   | "command_environment_not_active"
   | "command_authority_not_found"
+  | "command_authority_changed"
   | "command_authority_profile_exceeded"
   | "command_authority_expiry_invalid"
   | "command_member_not_found";
@@ -270,6 +272,7 @@ const readActiveAuthority = async (
       SELECT *
       FROM helix_environment_command_authorities
       WHERE environment_binding_id = $1 AND status = 'active'
+        AND (expires_at IS NULL OR expires_at > now())
       ORDER BY policy_version DESC
       LIMIT 1;
     `,
@@ -290,6 +293,7 @@ const readActiveGrant = async (
       WHERE command_authority_id = $1
         AND participant_id = $2
         AND status = 'active'
+        AND (expires_at IS NULL OR expires_at > now())
       LIMIT 1;
     `,
     [commandAuthorityId, participantId],
@@ -348,12 +352,23 @@ export const readEnvironmentCommandAuthority = async (input: {
   roomId: string;
   profileId: string;
   environmentBindingId: string;
+  voiceHandoffId?: string | null;
 }): Promise<{
   authority: HelixEnvironmentCommandAuthority | null;
   memberGrant: HelixEnvironmentCommandMemberGrant | null;
   memberGrants: HelixEnvironmentCommandMemberGrant[];
 }> => {
   const membership = await requireMembership(input);
+  const voiceActor = input.voiceHandoffId
+    ? await resolveCurrentVoiceCommandActor({
+        handoffId: input.voiceHandoffId,
+        roomId: input.roomId,
+        requesterProfileId: input.profileId,
+      }).catch(() => null)
+    : null;
+  if (input.voiceHandoffId && !voiceActor) {
+    return { authority: null, memberGrant: null, memberGrants: [] };
+  }
   const db = await readSharedRealtimeRoomDatabase();
   await readEnvironment(db, input.roomId, input.environmentBindingId);
   const authorityRow = await readActiveAuthority(db, input.environmentBindingId);
@@ -363,12 +378,12 @@ export const readEnvironmentCommandAuthority = async (input: {
   const grantRow = await readActiveGrant(
     db,
     authorityRow.command_authority_id,
-    membership.participantId,
+    voiceActor?.participantId ?? membership.participantId,
   );
   return {
     authority: projectAuthority(authorityRow),
     memberGrant: grantRow ? projectGrant(grantRow) : null,
-    memberGrants: membership.role === "owner"
+    memberGrants: !voiceActor && membership.role === "owner"
       ? (await readActiveGrants(db, authorityRow.command_authority_id)).map(
           projectGrant,
         )
@@ -650,6 +665,7 @@ export const emergencyStopEnvironmentCommandAuthority = async (input: {
   roomId: string;
   ownerProfileId: string;
   environmentBindingId: string;
+  expectedAuthorityId?: string;
 }): Promise<HelixEnvironmentCommandAuthority> => {
   const owner = await requireMembership({
     roomId: input.roomId,
@@ -664,6 +680,13 @@ export const emergencyStopEnvironmentCommandAuthority = async (input: {
         "command_authority_not_found",
         404,
         "No active environment command authority exists.",
+      );
+    }
+    if (input.expectedAuthorityId &&
+        authority.command_authority_id !== input.expectedAuthorityId) {
+      throw new EnvironmentCommandAuthorityError(
+        "command_authority_changed", 409,
+        "The reviewed command authority is no longer current.",
       );
     }
     await insertCommandEvent({

@@ -1,7 +1,11 @@
 import crypto from "node:crypto";
-import { mkdir, rename, rm, writeFile } from "node:fs/promises";
+import { lstat, mkdir, rename, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { resolveProfileOwnedMinecraftRunDirectory } from
+import {
+  resolveProfileOwnedMinecraftIntegratedWorld,
+  hasProfileOwnedMinecraftIntegratedWorldSelection,
+  resolveProfileOwnedMinecraftRunDirectory,
+} from
   "./local-minecraft-run-profile-store";
 
 const SERVER_PAIRING_INBOX = "helix-fabric-sensor.pairing-inbox" as const;
@@ -75,6 +79,7 @@ export const stageLocalMinecraftServerPairing = async (input: {
   serverRunDirectory?: string | null;
   ownerProfileId?: string | null;
   appDataPath?: string | null;
+  expectedIntegratedWorld?: { gameDirectory: string; worldFolder: string };
 }): Promise<{ status: "server_pairing_inbox_staged" }> => {
   const command = input.command.trim();
   if (
@@ -124,16 +129,47 @@ export const stageLocalMinecraftServerPairing = async (input: {
     "helix-fabric-sensor",
     "run",
   );
-  const profileOwnedServerRoot = input.ownerProfileId?.trim()
+  const integratedWorld = input.ownerProfileId?.trim()
+    ? await resolveProfileOwnedMinecraftIntegratedWorld({
+        ownerProfileId: input.ownerProfileId,
+        storePath: process.env.HELIX_DESKTOP_MINECRAFT_INTEGRATED_WORLD_STORE,
+        appDataPath: input.appDataPath?.trim() || process.env.APPDATA,
+      })
+    : null;
+  const matchesReviewedIntegratedWorld = (current: typeof integratedWorld): boolean =>
+    !!current && !!input.expectedIntegratedWorld &&
+    path.resolve(current.gameDirectory) ===
+      path.resolve(input.expectedIntegratedWorld.gameDirectory) &&
+    current.worldFolder === input.expectedIntegratedWorld.worldFolder;
+  if (input.expectedIntegratedWorld &&
+      !matchesReviewedIntegratedWorld(integratedWorld)) {
+    throw new LocalServerPairingHandoffError(
+      "local_server_pairing_root_unavailable",
+      "The selected integrated world changed after source review; pairing was not staged.",
+    );
+  }
+  if (!integratedWorld && input.ownerProfileId?.trim() &&
+      await hasProfileOwnedMinecraftIntegratedWorldSelection({
+        ownerProfileId: input.ownerProfileId,
+        storePath: process.env.HELIX_DESKTOP_MINECRAFT_INTEGRATED_WORLD_STORE,
+        appDataPath: input.appDataPath?.trim() || process.env.APPDATA,
+      })) {
+    throw new LocalServerPairingHandoffError(
+      "local_server_pairing_root_unavailable",
+      "The selected integrated Minecraft world is unavailable; pairing cannot be redirected to a different server.",
+    );
+  }
+  const profileOwnedServerRoot = !integratedWorld && input.ownerProfileId?.trim()
     ? await resolveProfileOwnedMinecraftRunDirectory({
         ownerProfileId: input.ownerProfileId,
         storePath: process.env.HELIX_DESKTOP_MINECRAFT_PROFILE_STORE,
         appDataPath: input.appDataPath?.trim() || process.env.APPDATA,
       })
     : null;
+  const profileOwnedRoot = integratedWorld?.gameDirectory ?? profileOwnedServerRoot;
   const configuredServerRoot =
+    profileOwnedRoot ||
     input.serverRunDirectory?.trim() ||
-    profileOwnedServerRoot ||
     process.env.HELIX_MINECRAFT_SERVER_RUN_DIR?.trim() ||
     fixedRunRoot;
   const serverRoot = path.isAbsolute(configuredServerRoot)
@@ -143,7 +179,7 @@ export const stageLocalMinecraftServerPairing = async (input: {
   const relativeSegments = relativeServerRoot
     .split(path.sep)
     .filter(Boolean);
-  if (!profileOwnedServerRoot &&
+  if (!profileOwnedRoot &&
     (
     relativeServerRoot.startsWith("..") ||
     path.isAbsolute(relativeServerRoot) ||
@@ -156,7 +192,7 @@ export const stageLocalMinecraftServerPairing = async (input: {
   }
   const configDirectory = path.resolve(serverRoot, "config");
   const relativeConfig = path.relative(workspaceRoot, configDirectory);
-  if (!profileOwnedServerRoot &&
+  if (!profileOwnedRoot &&
     (
     relativeConfig.startsWith("..") ||
     path.isAbsolute(relativeConfig)
@@ -167,7 +203,17 @@ export const stageLocalMinecraftServerPairing = async (input: {
     );
   }
 
-  await mkdir(configDirectory, { recursive: true });
+  if (profileOwnedRoot) {
+    const info = await lstat(configDirectory).catch(() => null);
+    if (!info?.isDirectory() || info.isSymbolicLink()) {
+      throw new LocalServerPairingHandoffError(
+        "local_server_pairing_path_invalid",
+        "The owner-selected Minecraft config folder is unavailable or redirected.",
+      );
+    }
+  } else {
+    await mkdir(configDirectory, { recursive: true });
+  }
   const inboxPath = path.join(configDirectory, SERVER_PAIRING_INBOX);
   const pendingPath = path.join(
     configDirectory,
@@ -192,6 +238,18 @@ export const stageLocalMinecraftServerPairing = async (input: {
       flag: "wx",
       mode: 0o600,
     });
+    if (input.expectedIntegratedWorld &&
+        !matchesReviewedIntegratedWorld(
+          await resolveProfileOwnedMinecraftIntegratedWorld({
+            ownerProfileId: input.ownerProfileId?.trim() ?? "",
+            storePath: process.env.HELIX_DESKTOP_MINECRAFT_INTEGRATED_WORLD_STORE,
+            appDataPath: input.appDataPath?.trim() || process.env.APPDATA,
+          }))) {
+      throw new LocalServerPairingHandoffError(
+        "local_server_pairing_root_unavailable",
+        "The selected integrated world changed before pairing inbox commit.",
+      );
+    }
     await rm(inboxPath, { force: true });
     await rename(pendingPath, inboxPath);
   } finally {

@@ -167,10 +167,12 @@ export async function chooseResponsesBaseline(input: {
   if (!extracted.ok) return { status: "rejected", reason: extracted.reason, ...noEffect };
   const choice = record(extracted.choice);
   if (typeof choice.choice_id !== "string" ||
-      typeof choice.rationale_code !== "string" ||
-      choice.rationale_code.length > 160 ||
-      Object.keys(choice).some(key => !["choice_id", "rationale_code"].includes(key)))
-    return { status: "rejected", reason: "choice_invalid", ...noEffect };
+      typeof choice.rationale_code !== "string")
+    return { status: "rejected", reason: "choice_fields_invalid", ...noEffect };
+  if (choice.rationale_code.length > 160)
+    return { status: "rejected", reason: "choice_rationale_too_long", ...noEffect };
+  if (Object.keys(choice).some(key => !["choice_id", "rationale_code"].includes(key)))
+    return { status: "rejected", reason: "choice_extra_fields", ...noEffect };
   const choiceId = choice.choice_id;
   if (!input.menu.candidates.some(candidate => candidate.candidate_id === choiceId) &&
       choiceId !== "hold_safe" && choiceId !== "escalate_to_codex")

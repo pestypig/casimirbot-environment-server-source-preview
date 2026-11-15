@@ -1,0 +1,87 @@
+{
+  "status": "unpublished consolidated candidate disclosure",
+  "scope": "Omitted direct dependencies; selected source only, not a standalone application or test suite.",
+  "files": [
+    {
+      "path": "server/services/environment-connectors/commands/voice-command-actor.ts",
+      "category": "environment_runtime",
+      "reason": "Integrated connector pairing, actor resolution, action admission and result feedback remain outside the selected file set. Omitted action/policy dependencies prevent standalone execution; no game authority is inferred.",
+      "referenced_by": [
+        "server/services/environment-connectors/commands/authority-store.ts"
+      ]
+    },
+    {
+      "path": "server/services/environment-connectors/temporal-plans/responses-native-navigation-reaction.ts",
+      "category": "environment_runtime",
+      "reason": "Integrated connector pairing, actor resolution, action admission and result feedback remain outside the selected file set. Omitted action/policy dependencies prevent standalone execution; no game authority is inferred.",
+      "referenced_by": [
+        "server/services/environment-connectors/temporal-plans/temporal-checkpoint-evidence.ts"
+      ]
+    },
+    {
+      "path": "server/services/helix-ask/realtime-room/room-store.ts",
+      "category": "live_room_runtime",
+      "reason": "Integrated room storage, source admission, consent, protected context and live transport are omitted. The preview cannot establish a connected room, GPT Live session, valid player release or current source grant.",
+      "referenced_by": [
+        "server/services/environment-connectors/actions/authority-store.ts",
+        "server/services/environment-connectors/commands/authority-store.ts",
+        "server/services/environment-connectors/session/preparation-intent-runtime.ts",
+        "server/services/environment-connectors/subjects/subject-binding-store.ts"
+      ]
+    },
+    {
+      "path": "server/services/helix-ask/realtime-room/room-store/database.ts",
+      "category": "live_room_runtime",
+      "reason": "Integrated room storage, source admission, consent, protected context and live transport are omitted. The preview cannot establish a connected room, GPT Live session, valid player release or current source grant.",
+      "referenced_by": [
+        "server/services/environment-connectors/actions/authority-store.ts",
+        "server/services/environment-connectors/bindings/local-supervisor-identity-reader.ts",
+        "server/services/environment-connectors/brokerage/brokerage-resident-bootstrap.ts",
+        "server/services/environment-connectors/commands/authority-store.ts",
+        "server/services/environment-connectors/devices/device-check.ts",
+        "server/services/environment-connectors/goals/durable-goal-store.ts",
+        "server/services/environment-connectors/monitoring/environment-monitor-store.ts",
+        "server/services/environment-connectors/reasoning-roles/environment-reasoning-role-store.ts",
+        "server/services/environment-connectors/subjects/subject-binding-store.ts",
+        "server/services/environment-connectors/temporal-plans/temporal-frontier-store.ts"
+      ]
+    },
+    {
+      "path": "shared/helix-companion-child-provider-request.ts",
+      "category": "shared_contracts_and_helpers",
+      "reason": "These newly referenced contracts/helpers are not in the existing selected source inventories. Their exact dependency is disclosed; the selected previews remain non-standalone. No source rights or physics/runtime acceptance is claimed for the omitted bytes.",
+      "referenced_by": [
+        "server/services/environment-connectors/temporal-plans/responses-action-broker-transport.ts"
+      ]
+    },
+    {
+      "path": "shared/helix-companion-resident-provider-request.ts",
+      "category": "shared_contracts_and_helpers",
+      "reason": "These newly referenced contracts/helpers are not in the existing selected source inventories. Their exact dependency is disclosed; the selected previews remain non-standalone. No source rights or physics/runtime acceptance is claimed for the omitted bytes.",
+      "referenced_by": [
+        "server/services/environment-connectors/temporal-plans/responses-action-broker-transport.ts"
+      ]
+    },
+    {
+      "path": "shared/helix-minecraft-shelter-provider-request.ts",
+      "category": "shared_contracts_and_helpers",
+      "reason": "These newly referenced contracts/helpers are not in the existing selected source inventories. Their exact dependency is disclosed; the selected previews remain non-standalone. No source rights or physics/runtime acceptance is claimed for the omitted bytes.",
+      "referenced_by": [
+        "server/services/environment-connectors/temporal-plans/responses-action-broker-transport.ts"
+      ]
+    },
+    {
+      "path": "shared/helix-responses-monitor-provider-request.ts",
+      "category": "shared_contracts_and_helpers",
+      "reason": "These newly referenced contracts/helpers are not in the existing selected source inventories. Their exact dependency is disclosed; the selected previews remain non-standalone. No source rights or physics/runtime acceptance is claimed for the omitted bytes.",
+      "referenced_by": [
+        "server/services/environment-connectors/temporal-plans/responses-action-broker-transport.ts"
+      ]
+    }
+  ],
+  "limits": [
+    "No transitive dependency completeness or standalone-build claim.",
+    "Source publication, final source freeze, installed acceptance and existing native/research evidence holds remain open.",
+    "No additional omitted code has been silently copied into a public source proposal."
+  ]
+}
